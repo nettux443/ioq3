@@ -872,7 +872,10 @@ G_ItemDisabled
 int G_ItemDisabled( gitem_t *item ) {
 
 	char name[128];
-
+        // nettux disable weapon and ammo pickups
+        if ( item->giType == IT_AMMO || item->giType == IT_WEAPON ) {
+             return qtrue;
+        }
 	Com_sprintf(name, sizeof(name), "disable_%s", item->classname);
 	return trap_Cvar_VariableIntegerValue( name );
 }
