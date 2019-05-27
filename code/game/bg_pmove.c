@@ -1627,12 +1627,12 @@ static void PM_Weapon( void ) {
 
 	pm->ps->weaponstate = WEAPON_FIRING;
 
-	// check for out of ammo
-	if ( ! pm->ps->ammo[ pm->ps->weapon ] ) {
-		PM_AddEvent( EV_NOAMMO );
-		pm->ps->weaponTime += 500;
-		return;
-	}
+        // take an ammo away if not infinite
+        // nettux infinite ammo
+        //if ( pm->ps->ammo[ pm->ps->weapon ] != -1 ) {
+        //      pm->ps->ammo[ pm->ps->weapon ]--;
+        //}
+
 
 	// take an ammo away if not infinite
 	if ( pm->ps->ammo[ pm->ps->weapon ] != -1 ) {
